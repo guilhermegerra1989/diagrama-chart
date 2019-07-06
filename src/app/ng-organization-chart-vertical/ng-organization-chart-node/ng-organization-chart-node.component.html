@@ -1,0 +1,115 @@
+
+    <div class="align-self-center node-item p-2 {{status}} {{statusChild}} {{initFirst}}">
+            <div class="d-flex clearfix header">
+                    <div class="label-header p-1">{{ node.blockTypeName}}</div>
+                    <div class="ml-auto p-1">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu-css align-self-end" aria-label="Example icon-button with a menu">
+                                <mat-icon class="mat-icon">more_vert</mat-icon>
+                            </button> 
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item mat-raised-button matTooltip="'Edit'" [matTooltipPosition]="'after'" class="mat-menu-item-diagram" (click)="showEditModal(true, false)">
+                                    <mat-icon>mode_edit</mat-icon>
+                                    <span>Edit</span>
+                                </button>
+                                <button mat-menu-item mat-raised-button matTooltip="'Delete'" class="mat-menu-item-diagram"  *ngIf="node.children.length <= 0" (click)="showRemoveModal(true)">
+                                    <mat-icon>delete_forever</mat-icon>
+                                    <span>Delete</span>
+                                </button> 
+                            </mat-menu> 
+                    </div>
+            </div>
+            <div class="label-footer">{{ node.name}}</div>
+            <div class="button-more" (click)="showEditModal(true, true)" >
+                    <i class="material-icons"> add </i><br>
+                    <span>Adicionar nível</span>
+            </div>
+    </div>
+    <div *ngIf="node.children.length > 1" >
+        <!-- <div class="line-fix"></div> -->
+    </div>
+    
+    <div class="d-flex" *ngIf="node.children.length > 1">
+            <div *ngIf="node.isAndDoor != null" class="line-fix"></div>
+            <div *ngIf="node.isAndDoor != null">
+                    <img class="img" *ngIf="node.isAndDoor == false" src="../../../../assets/images/middle-moon-invert.png">
+                    <img class="img" *ngIf="node.isAndDoor == true"  src="../../../../assets/images/moon-invert.png">
+            </div> 
+            <div class="line-fix"></div>
+    </div>
+       
+    <ng-organization-chart-list #{{node.id}} *ngIf="node.children.length > 0" [ngClass]="'ng-organization-chart-list'" [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)"></ng-organization-chart-list>
+  
+
+    <!-- <generic-modal [modalTitle]="'Edit'" [isShowingModal]="isShowingOrgChartEditModal" (modalShowChange)="closeEditModal()" [isLarge]="false">
+    
+            <form [formGroup]="modalForm" class="default-container" > 
+                    <div class="d-flex flex-column col-md-24">
+                        <label class="label-body" >Tipo<span class="required">*</span></label>
+                        <div class="form-body">
+                            <ng-select formControlName="subject" [items]="blockTypeList" bindLabel="description" bindValue="id"></ng-select>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column col-md-24">
+                        <label class="label-body">Causa</label>
+                        <div class="form-body"><textarea rows="4" cols="50" class="form-control" formControlName="description" ></textarea></div>
+                    </div>
+                    <div class="d-flex flex-column col-md-24" *ngIf="node.children.length > 1">
+                        <label class="label-body">Conexão</label>
+                        <div class="p-2">
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" value="1" class="form-check-input" formControlName="diagramValue"  name="diagramValue" id="diagramValue1">
+                                    <label for="diagramValue1" class="form-check-label">Conexão simples</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" value="2" class="form-check-input" formControlName="diagramValue" name="diagramValue" id="diagramValue2">
+                                    <label for="diagramValue2" class="form-check-label">Conexão "e" </label>
+                                    <img height="30px" width="30px" src="../../../../assets/images/moon.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" value="3" class="form-check-input" formControlName="diagramValue" name="diagramValue" id="diagramValue3">
+                                    <label for="diagramValue3" class="form-check-label">Conexão "ou"</label>
+                                    <img height="30px" width="30px" src="../../../../assets/images/middle-moon.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="d-flex justify-content-between  col-md-24">
+                        <div class="p2 bottom">
+                            <button class="btn btn-white" (click)="closeEditModal()"  >Cancel</button>
+                        </div>
+                        <div class="p2 bottom">
+                            <button class="btn btn-primary" (click)="saveNode()" >Save</button>
+                        </div>
+                    </div>
+            </form>
+        </generic-modal>
+    
+        <generic-modal [modalTitle]="'Remover'" [isShowingModal]="isShowingOrgChartRemoveModal" (modalShowChange)="showRemoveModal(false)" [isLarge]="false">
+                <div class="default-container" > 
+                    <div class="d-flex justify-content-center">
+                        <div class="p2">
+                            <h1>Remover</h1>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between  col-md-24">
+                        <div class="p2 bottom">
+                            <button class="btn btn-white" (click)="showRemoveModal(false)" >Cancelar</button>
+                        </div>
+                        <div class="p2 bottom">
+                            <button class="btn btn-primary" (click)="deleteNode()" >Delete</button>
+                        </div>
+                    </div>
+                </div>
+        </generic-modal> -->
+    
+     

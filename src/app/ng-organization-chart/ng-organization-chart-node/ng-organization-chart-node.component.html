@@ -1,0 +1,40 @@
+<div class="container" draggable droppable [dragData]="node" >
+    <div class="d-flex header">
+            <div class="label-header p-2">{{ node.blockTypeName}}</div>
+            <div class="ml-auto p-2">
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu-css align-self-end" aria-label="Example icon-button with a menu">
+                    <mat-icon class="mat-icon">more_vert</mat-icon>
+                </button> 
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item mat-raised-button matTooltip="'Edit'" (click)="showEditModal(true, false)" [matTooltipPosition]="'after'" class="mat-menu-item-diagram">
+                        <mat-icon>mode_edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item mat-raised-button matTooltip="'Add'" *ngIf="node.children.length > 0" (click)="showEditModal(true, true)" [matTooltipPosition]="'after'" class="mat-menu-item-diagram">
+                            <mat-icon>add</mat-icon>
+                            <span>Add</span>
+                    </button>
+                    <button mat-menu-item mat-raised-button matTooltip="'Delete'" (click)="showRemoveModal(true)" *ngIf="node.children.length <= 0" class="mat-menu-item-diagram">
+                        <mat-icon>delete_forever</mat-icon>
+                        <span>Delete</span>
+                    </button> 
+                </mat-menu> 
+            </div>
+    </div>
+    <div class="label-footer" >{{ node.name}}</div>
+    <div class="button-more" (click)="showEditModal(true, true)" *ngIf="node.children.length < 1">
+            <i class="material-icons">add</i><br>
+            <span>Adicionar nível</span>
+    </div>
+</div>
+<div class="expand-button-container" *ngIf="node.children.length > 0">
+    <div class="d-flex justify-content-center">
+        <div class="line-fix" (click)="changeChildrenStyleToVertical()" *ngIf="node.isAndDoor == true || node.isAndDoor == false"></div>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="node.isAndDoor != null">
+        <div *ngIf="node.isAndDoor == false"><img src="../../../../assets/images/middle-moon.png"></div>
+        <div *ngIf="node.isAndDoor == true"><img src="../../../../assets/images/moon.png"></div>
+    </div>
+</div>
+
+<ng-organization-chart-list [ngClass]="'ng-organization-chart-list'" [nodeList]="node.children" *ngIf="isChildrenVisible && node.children.length > 0" ></ng-organization-chart-list>

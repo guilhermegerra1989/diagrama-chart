@@ -1,0 +1,4 @@
+<ng-organization-chart-node #{{node.id}}  [ngClass]="'ng-organization-chart-node d-flex flex-row'" *ngFor="let node of nodeList, let i = index" [index]="i"  [nodeListSize]="nodeList.length" [node]="node" (onClickNode)="onClickDeepNode($event)"></ng-organization-chart-node>
+
+
+

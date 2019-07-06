@@ -1,0 +1,175 @@
+@import "../../../diagram-chart/src/styles/modules/colors.scss";
+
+ .zoom-5 {
+ 	zoom: 0.5;
+ 	width: max-content;
+ }
+
+ .zoom-1 {
+  zoom: 1.0;
+  width: max-content;
+}
+
+.zoom-1-5 {
+  zoom: 1.5;
+  width: max-content;
+}
+
+.init-diagram {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text-diagram {
+  width: 350px;
+  text-align: center;
+  color: $gray-light;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.body-org-chart{
+  height: max-content;
+	background-color: white;
+	display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  width: max-content;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-background-light;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $gray-light;
+
+    &:hover {
+      background-color: $standard-gray;
+    }
+  }
+}
+
+.thin-scroll-dark {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $blue-primary; //lighten($blue-input, 12%);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: darken($blue-input, 3%);
+
+    &:hover {
+      background-color: darken($blue-input, 5%);
+    }
+  }
+}
+
+.main-org-chart{
+  padding: 40px 10px 10px 10px;
+  height: 800px;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-background-light;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $gray-light;
+
+    &:hover {
+      background-color: $standard-gray;
+    }
+  }
+}
+
+
+//NAVBAR
+.topnav {
+  background-color: #FAFAFA;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  color: #B8B4C0;
+}
+
+.topnav .form-check {
+  float: left;
+  text-align: center;
+  padding: 12px 14px;
+}
+
+.topnav .db-origin-container {
+  width: 100%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #FAFAFA;
+  color: #B8B4C0;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #FAFAFA;
+  color: #B8B4C0;
+}
+
+.topnav a.first {
+  background-color: #FAFAFA;
+  font-size: 12px;
+  color: $blue-input;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.topnav a.zoom {
+  background-color: #FAFAFA;
+  font-size: 12px;
+  color: $blue-input;
+  font-weight: 700;
+  margin: 0 0 8px 20px;
+}
+
+.zoom-select {
+  float: left;
+  padding-top: 5px;
+  width: 100px;
+}
+
+.help {
+  padding-top: 12px;
+  background-color: #FAFAFA;
+  font-size: 24px;
+  color: $gray-light;
+}
+
+.form-button{
+  padding-top: 14px!important;
+}

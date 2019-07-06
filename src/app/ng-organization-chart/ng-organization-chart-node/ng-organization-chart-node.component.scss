@@ -1,0 +1,95 @@
+@import "../../../styles/modules/colors.scss";
+
+ng-organization-chart-list {
+	padding-top: 20px; position: relative;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	display: block;
+}
+
+/*Time to add downward connectors from parents*/
+ ng-organization-chart-list::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #B1CFE9;
+	width: 0; height: 20px;
+}
+
+.header { margin-top: -10px; }
+.label-header { color: #666;	margin-top: 5px;	margin-left: 5px; }
+.default-container { margin-bottom: 0px!important; h1 { border-bottom: 0px; } }
+.label-body { padding: 5px 0px 0px 0px; text-align: left; .required { content: "*"; color: $red; position: relative;	font-size: 13px; left: 1px;} }
+.label-footer {	padding: 0px 5px 5px 13px;	float: left; width: 170px; overflow: hidden!important; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;}
+.bottom { margin-bottom: 20px; margin-top: 10px; }
+.form-check-label { min-width: 90px!important; }
+
+
+.container{
+	border: 1px solid $gray-light;
+	padding: 5px 10px;
+	text-decoration: none;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	width: 200px;
+	height: 76px;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+.container:after{ display: none!important; }
+.container:hover{
+	border: 1px solid #4A74B3;
+	padding: 5px 10px;
+	text-decoration: none;
+	background-color: #F1F4F9;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	width: 200px;
+	height: 76px;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.line-fix{ width: 2px; height: 10px; background-color: #F2F2F2;	border-left: 1px solid #B1CFE9; }
+.container:hover { .button-more { opacity: 10;	transition: 0.5s;	} }
+.button-more {
+	  i {	background: $blue;	color: $white; padding: 2px; font-size: 15px;	border-radius: 50%;	border: 1px solid $white;	cursor: pointer; }
+	  span { cursor: pointer; }
+	  position: relative;
+    width: 10px;
+    height: 10px;
+    margin-top: 30px;
+    text-align: center;
+	  width: 100%;
+	  text-align: center;
+	  font-size: 12px;
+	  color: $blue;
+	  opacity: 0;
+	  transition: 0.5s;
+}
+
+.mat-menu-css{ background-color: transparent!important;	border:none; outline: none;
+	.mat-icon { color: $blue; border:none; outline: none; }
+}
+  
+.mat-menu-item-diagram { margin-right: 16px; vertical-align: middle; color: $blue; font-size: 13px; border:none; outline: none;
+	  .mat-icon { color: $blue }
+}
+
